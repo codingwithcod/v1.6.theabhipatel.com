@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Experience } from "@/constants/experience";
+import { InfrastructureBackground } from "@/components/shared/backgrounds/InfrastructureBackground";
+import { EnhancedSectionHeading } from "@/components/shared/EnhancedSectionHeading";
 
 interface ExperiencePreviewProps {
   experiences: Experience[];
@@ -16,22 +18,19 @@ export default function ExperiencePreview({
   const displayedExperiences = experiences.slice(0, maxDisplay);
 
   return (
-    <section className="py-16">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Work Experience
-          </h2>
-          <p className="text-muted-foreground">
-            My professional journey and achievements
-          </p>
-        </motion.div>
+    <section className="relative py-16 overflow-hidden">
+      {/* Infrastructure Background */}
+      <InfrastructureBackground className="opacity-40" theme="mixed" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="mb-12">
+          <EnhancedSectionHeading
+            title="Work Experience"
+            subtitle="My professional journey and achievements"
+            align="center"
+            gradientText={true}
+          />
+        </div>
 
         {/* Mini Timeline */}
         <div className="max-w-3xl mx-auto mb-8">

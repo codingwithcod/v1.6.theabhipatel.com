@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Skill } from "@/constants/skills";
+import { CodePatternBackground } from "@/components/shared/backgrounds/CodePatternBackground";
+import { EnhancedSectionHeading } from "@/components/shared/EnhancedSectionHeading";
 
 interface SkillsPreviewProps {
   skills: Skill[];
@@ -16,22 +18,21 @@ export default function SkillsPreview({
   const displayedSkills = skills.slice(0, maxDisplay);
 
   return (
-    <section className="py-16">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Skills & Technologies
-          </h2>
-          <p className="text-muted-foreground">
-            Technologies I work with to build amazing applications
-          </p>
-        </motion.div>
+    <section className="relative py-16">
+      {/* CodePatternBackground positioned absolutely behind content */}
+      <CodePatternBackground className="opacity-40" pattern="matrix" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Replace old heading with EnhancedSectionHeading */}
+        <div className="mb-12">
+          <EnhancedSectionHeading
+            title="Skills & Technologies"
+            subtitle="Technologies I work with to build amazing applications"
+            align="center"
+            gradientText={true}
+            decorative={true}
+          />
+        </div>
 
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-8">
           {displayedSkills.map((skill, index) => (

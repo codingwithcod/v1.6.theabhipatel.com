@@ -20,8 +20,10 @@ const whitespaceStringArb = fc.oneof(
   fc.constant("  \t  \n  ")
 );
 
-// Generator for non-empty strings
-const nonEmptyStringArb = fc.string({ minLength: 1, maxLength: 100 });
+// Generator for non-empty strings (excluding whitespace-only strings)
+const nonEmptyStringArb = fc
+  .string({ minLength: 1, maxLength: 100 })
+  .filter((s) => s.trim().length > 0);
 
 // Generator for invalid email strings (no @ symbol)
 const invalidEmailArb = fc

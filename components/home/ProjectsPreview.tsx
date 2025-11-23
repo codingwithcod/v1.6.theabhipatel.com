@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Project } from "@/constants/projects";
+import { GitWorkflowBackground } from "@/components/shared/backgrounds/GitWorkflowBackground";
+import { EnhancedSectionHeading } from "@/components/shared/EnhancedSectionHeading";
 
 interface ProjectsPreviewProps {
   projects: Project[];
@@ -16,22 +18,20 @@ export default function ProjectsPreview({
   const displayedProjects = projects.slice(0, maxDisplay);
 
   return (
-    <section className="py-16">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-muted-foreground">
-            Some of my recent work and side projects
-          </p>
-        </motion.div>
+    <section className="relative py-16">
+      {/* GitWorkflowBackground with appropriate layering */}
+      <GitWorkflowBackground className="opacity-40" animated={true} />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="mb-12">
+          <EnhancedSectionHeading
+            title="Featured Projects"
+            subtitle="Some of my recent work and side projects"
+            align="center"
+            gradientText={true}
+            decorative={false}
+          />
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {displayedProjects.map((project, index) => (

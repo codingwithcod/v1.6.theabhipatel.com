@@ -30,7 +30,7 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
       <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-blue-500 via-brand-indigo-500 to-brand-blue-500 opacity-30" />
 
       <div className="space-y-8">
-        {experiences.map((experience, index) => {
+        {experiences.map((experience) => {
           const isExpanded = expandedIds.has(experience.id);
 
           return (
