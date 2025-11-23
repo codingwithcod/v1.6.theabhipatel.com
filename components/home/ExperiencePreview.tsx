@@ -115,6 +115,39 @@ export default function ExperiencePreview({
           >
             View Full Experience
           </Link>
+
+          {/* Stats or Quick Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="mt-12 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto px-4"
+          >
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-blue-500 mb-1 sm:mb-2">
+                3.5+
+              </div>
+              <div className="text-xs sm:text-sm text-muted-foreground">
+                Years Experience
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-indigo-500 mb-1 sm:mb-2">
+                20+
+              </div>
+              <div className="text-xs sm:text-sm text-muted-foreground">
+                Projects Built
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-blue-600 mb-1 sm:mb-2">
+                10+
+              </div>
+              <div className="text-xs sm:text-sm text-muted-foreground">
+                Technologies
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
