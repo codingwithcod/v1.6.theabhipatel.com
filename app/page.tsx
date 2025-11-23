@@ -41,7 +41,7 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSection
         name="TheAbhiPatel"
-        title="Full Stack / MERN / DevOps Engineer"
+        title="A Full Stack & DevOps Engineer"
         tagline="Building scalable web applications that solve real-world problems and deliver exceptional user experiences"
         ctaText="View My Work"
         ctaLink="#projects"
